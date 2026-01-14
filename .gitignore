@@ -1,0 +1,81 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions (for build optimizations)
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  * https://docs.python.org/3/library/pyinstaller.html
+#
+#  1. To build the executable (pyinstaller --onefile main.py)
+#  2. Then delete the directory created by PyInstaller (main.dist/)
+#  3. And delete the spec file (main.spec)
+#
+#  Comment these lines to keep the build artifacts:
+#  main.dist/
+#  main.spec
+
+# PIP cache
+.cache/
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+.pylintrc
+. pylintrc
+.coveragerc
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Python
+*.pyc
+__pycache__/
+
+# IDE
+.vscode/
+.idea/
+
+# System
+.DS_Store
+.AppleDouble
+._*
