@@ -74,6 +74,7 @@ class DatabaseClient:
                     account VARCHAR(255),
                     description TEXT,
                     amount DECIMAL(15,2),
+                    category VARCHAR(255),
                     currency VARCHAR(10),
                     processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )

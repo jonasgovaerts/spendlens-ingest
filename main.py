@@ -63,6 +63,7 @@ def process_csv_data(csv_content):
     """Process CSV data and extract records"""
     try:
         # Read CSV content - handle semicolon-separated files with proper quoting
+        # Using a more robust approach for handling complex CSVs with embedded semicolons in quoted fields
         df = pd.read_csv(
             pd.io.common.BytesIO(csv_content),
             encoding='utf-8',
@@ -88,8 +89,12 @@ def process_csv_data(csv_content):
         # Map columns to database schema
         df = df.rename(columns=column_mapping)
         
-        # Convert amount to numeric (remove any currency symbols and commas)
-        df['amount'] = df['amount'].astype(str).str.replace(',', '.').str.replace('€', '').str.replace(' ', '').str.strip()
+        # Convert amount to numeric (remove any currency symbols, plus signs and handle thousand separators)
+        df['amount'] = df['amount'].astype(str)
+        # Remove plus signs and currency symbols
+        df['amount'] = df['amount'].str.replace('+', '').str.replace('€', '').str.replace(' ', '')
+        # Handle European number format (1.234,56 -> 1234.56)
+        df['amount'] = df['amount'].str.replace('.', '', regex=False).str.replace(',', '.').str.strip()
         df['amount'] = pd.to_numeric(df['amount'], errors='coerce')
         
         # Convert date formats if needed
